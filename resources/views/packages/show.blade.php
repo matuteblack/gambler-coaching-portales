@@ -5,9 +5,11 @@
         <x-slot:title>Paquete {{ $package->name }}</x-slot>
         
         <div class="card-show">
-            <div class="description">
+            <div class="show-description">
+                <p>{{ $package->packageLevel }}</p>
                 <h1>Paquete {{ $package->name }}</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, laborum nam inventore, officia culpa provident id magnam velit corporis ratione, pariatur quia nemo dicta! Ut debitis inventore similique accusantium quidem.</p>
+                <span class="underline"></span>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, laborum nam inventore, officia culpa provident id magnam velit corporis ratione, pariatur quia nemo dicta! Ut debitis inventore similique accusantium quidem.</p>
             </div>
 
             <div class="package-card">

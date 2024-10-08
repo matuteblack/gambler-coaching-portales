@@ -222,6 +222,13 @@ footer {
     width: 240px;
     height: 350px;
 }
+.underline {
+    display: block;
+    background-color: #F6A42B;
+    width: 40%;
+    height: 2px;
+    margin-top: 6px;
+}
 .card-row-1 {
     text-align: center;
     img {
@@ -239,13 +246,6 @@ footer {
         font-size: 1.1rem;
         font-family: "Lexend", sans-serif;
         font-weight: bold;
-    }
-    .underline {
-        display: block;
-        background-color: #F6A42B;
-        width: 40%;
-        height: 2px;
-        margin-top: 6px;
     }
 }
 .card-row-3 {
@@ -280,11 +280,11 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     margin: 2rem 0;
-    .description {
+    .show-description {
         max-width: 400px;
         padding: 2rem 1rem;
+    .description {
+        margin-top: 1rem;
     }
-    h1 {
-        margin: 2rem 0;
     }
 }
