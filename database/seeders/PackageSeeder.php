@@ -15,26 +15,61 @@ class PackageSeeder extends Seeder
     {
         DB::table('packages')->insert([
             [
-                'name' => 'Basic',
-                'price' => 100,
+                'name' => 'TIER S',
+                'type' => 'Paquete SoloQ',
+                // TODO: cambiar los precios a centavos
+                'price' => 125,
                 'description' => 'Basic package',
-                'sessions' => 1,
-                'duration' => 30,
-            ],
-            [
-                'name' => 'Standard',
-                'price' => 200,
-                'description' => 'Standard package',
-                'sessions' => 2,
-                'duration' => 60,
-            ],
-            [
-                'name' => 'Premium',
-                'price' => 300,
-                'description' => 'Premium package',
-                'sessions' => 3,
+                'sessions' => 16,
                 'duration' => 90,
+                'image' => 'challenger-2023.png',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
+            [
+                'name' => 'TIER A',
+                'type' => 'Paquete SoloQ',
+                'price' => 95,
+                'description' => 'Basic package',
+                'sessions' => 12,
+                'duration' => 90,
+                'image' => 'grandmaster-2023.png',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'name' => 'TIER B',
+                'type' => 'Paquete SoloQ',
+                'price' => 65,
+                'description' => 'Basic package',
+                'sessions' => 8,
+                'duration' => 90,
+                'image' => 'master-2023.png',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'name' => 'TIER S',
+                'type' => 'Paquete DuoQ',
+                'price' => 170,
+                'description' => 'Basic package',
+                'sessions' => 16,
+                'duration' => 120,
+                'image' => 'challenger-2023.png',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'name' => 'TIER A',
+                'type' => 'Paquete DuoQ',
+                'price' => 90,
+                'description' => 'Basic package',
+                'sessions' => 8,
+                'duration' => 120,
+                'image' => 'grandmaster-2023.png',
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
         ]);
     }
 }

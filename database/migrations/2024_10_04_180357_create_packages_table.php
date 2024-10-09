@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id('package_id');
             $table->string('name');
+            $table->string('type');
             $table->unsignedInteger('price');
             $table->text('description');
             $table->unsignedInteger('sessions');
             $table->unsignedInteger('duration');
+            $table->string('image');
             $table->timestamps();
         });
     }

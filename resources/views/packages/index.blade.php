@@ -11,12 +11,11 @@
             @foreach($packages as $package)
             <div class="package-card">
                 <div class="card-row-1">
-                    <!-- <img src="{{ $package->image }}" alt=""> -->
-                    <img src="{{ url('./assets/img/challenger-2023.png') }}" alt="">
+                    <img src="{{ url('./assets/img/' . $package->image) }}" alt="">
                 </div>
                 <div class="card-row-2">
                     <div>
-                        <p>Paquete SoloQ</p>
+                        <p>{{ $package->type }}</p>
                         <h2>{{ $package->name }}</h2>
                         <!-- <p>{{ $package->packageLevel }}</p> -->
                         <span class="underline"></span>
