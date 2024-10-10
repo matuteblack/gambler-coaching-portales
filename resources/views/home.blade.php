@@ -5,7 +5,7 @@
                 <p>Aprendé League of Legends en español. Conseguí el elo que siempre deseaste.</p>
                 <p>Empezá hoy.</p>
                 <div class="cta">
-                    <a href="{{ url('/paquetes') }}">Ver paquetes
+                    <a href="{{ route('packages') }}">Ver paquetes
                         <img src="{{ url('./assets/icon/link_arrow.png') }}" alt="link a ver paquetes">
                     </a>
                 </div>

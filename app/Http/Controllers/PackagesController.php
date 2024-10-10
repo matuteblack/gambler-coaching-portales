@@ -18,7 +18,7 @@ class PackagesController extends Controller
 
     public function show(int $id)
     {
-        $package = Package::find($id);
+        $package = Package::findOrFail($id);
 
         return view('packages.show', [
             'package' => $package

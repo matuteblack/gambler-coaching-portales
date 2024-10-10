@@ -27,11 +27,10 @@
                     <p>{{ $package->sessions }} SESIONES DE COACHING + VOD</p>
                 </div>
                 <div class="card-row-4">
-                    <a href="{{ url('paquetes/' . $package->package_id) }}">VER PAQUETE</a>
+                    <a href="{{ route('packages', ['id' => $package->package_id]) }}">VER PAQUETE</a>
                 </div>
             </div>
             @endforeach
         </div>
     </section>
-
 </x-layout>

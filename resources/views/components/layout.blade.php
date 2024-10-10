@@ -4,15 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title> {{ $title }} | Gambler Coaching</title>
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-
+    
     <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('/css/styles.css') }}">
+    
+    <title> {{ $title }} | Gambler Coaching</title>
+
 </head>
 <body>
     <div class="layout">
@@ -20,16 +23,18 @@
             <nav class="container-row">
                 <div class="logo">
                     <img src="{{ url('./assets/icon/favicon.jfif') }}" alt="coach gambler logo">
-                    <a href="{{ url('/') }}">
+                    <a href="{{ route('home') }}">
                         <span>GAMBLER</span>
                     </a>
                 </div>
                 <ul class="links container-row">
                     <li class="link"><a href="">Sobre mi</a></li>
-                    <li class="link"><a href="{{ url('/paquetes') }}">Paquetes</a></li>
-                    <li class="link"><a href="#membresias">Membresías</a></li>
-                    <li class="link"><a href="#testimonios">Testimonios</a></li>
-                    <li class="link"><a href="#faqs">FAQs</a></li>
+                    <li class="link"><a href="{{ route('packages') }}">Paquetes</a></li>
+                    <li class="link"><a href="{{ route('blog') }}">Blog</a></li>
+                    <li class="link"><a href="{{ route('blog.admin') }}">Ingresar</a></li>
+                    {{-- <li class="link"><a href="#membresias">Membresías</a></li>
+                    <li class="link"><a href="#testimonios">Testimonios</a></li> --}}
+                    {{-- <li class="link"><a href="#faqs">FAQs</a></li> --}}
                 </ul>
                 <ul class="redes container-row">
                     <li><a href="https://www.twitch.tv/gamblercoach" target="_blank"><img src="{{ url('/assets/icon/twitch_icon.png') }}" alt="twitch icon" class="icon"></a></li>
@@ -41,6 +46,10 @@
         </header>
         
         <main>
+            @if(session()->has('feedback.message'))
+                <div class="alert alert-success bi-check-circle-fill"> {!! session()->get('feedback.message') !!}</div>
+            @endif
+
             {{ $slot }}
         </main>
 
@@ -53,10 +62,12 @@
                     </div>
                     <ul class="links">
                         <li class="link"><a href="">Sobre mi</a></li>
-                        <li class="link"><a href="">Paquetes</a></li>
-                        <li class="link"><a href="">Membresías</a></li>
-                        <li class="link"><a href="">Testimonios</a></li>
-                        <li class="link"><a href="">FAQs</a></li>
+                        <li class="link"><a href="{{ route('packages') }}">Paquetes</a></li>
+                        <li class="link"><a href="{{ route('blog') }}">Blog</a></li>
+                        <li class="link"><a href="{{ route('blog.admin') }}">Ingresar</a></li>
+                        {{-- <li class="link"><a href="">Membresías</a></li> --}}
+                        {{-- <li class="link"><a href="">Testimonios</a></li> --}}
+                        {{-- <li class="link"><a href="">FAQs</a></li> --}}
                     </ul>
                 </div>
                 <div class="footer-redes">
