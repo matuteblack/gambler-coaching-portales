@@ -7,6 +7,24 @@ use App\Models\Blog;
 
 class BlogsController extends Controller
 {
+    private array $validationRules = 
+    [
+        'title' => 'required|min:2',
+        'image' => 'required',
+        'alt' => 'required',
+        'content' => 'required|min:20'
+    ];
+
+    private array $validationMessages = 
+    [
+        'title.required' => 'El título es obligatorio',
+        'title.min' => 'El título debe tener al menos :min caracteres',
+        'image.required' => 'La imagen es obligatoria',
+        'alt.required' => 'El texto alternativo es obligatorio',
+        'content.required' => 'El contenido es obligatorio',
+        'content.min' => 'El contenido debe tener al menos 20 caracteres'
+    ];
+
     public function index()
     {
         return view('blog.index', [
@@ -35,19 +53,7 @@ class BlogsController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|min:2',
-            'image' => 'required',
-            'alt' => 'required',
-            'content' => 'required|min:20'
-        ], [
-            'title.required' => 'El título es obligatorio',
-            'title.min' => 'El título debe tener al menos :min caracteres',
-            'image.required' => 'La imagen es obligatoria',
-            'alt.required' => 'El texto alternativo es obligatorio',
-            'content.required' => 'El contenido es obligatorio',
-            'content.min' => 'El contenido debe tener al menos 20 caracteres'
-        ]);
+        $request->validate($this->validationRules, $this->validationMessages);
 
         $data = $request->except('_token');
         Blog::create($data);
@@ -65,19 +71,7 @@ class BlogsController extends Controller
 
     public function update(Request $request, int $id)
     {
-        $request->validate([
-            'title' => 'required|min:2',
-            'image' => 'required',
-            'alt' => 'required',
-            'content' => 'required|min:20'
-        ], [
-            'title.required' => 'El título es obligatorio',
-            'title.min' => 'El título debe tener al menos :min caracteres',
-            'image.required' => 'La imagen es obligatoria',
-            'alt.required' => 'El texto alternativo es obligatorio',
-            'content.required' => 'El contenido es obligatorio',
-            'content.min' => 'El contenido debe tener al menos 20 caracteres'
-        ]);
+        $request->validate($this->validationRules, $this->validationMessages);
 
         $blog = Blog::findOrFail($id);
         $blog->update($request->except('_token'));
